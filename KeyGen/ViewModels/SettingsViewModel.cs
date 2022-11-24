@@ -1,7 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using System;
-using System.Windows.Input;
 using Wpf.Ui.Common.Interfaces;
 
 namespace KeyGen.ViewModels
@@ -11,7 +9,7 @@ namespace KeyGen.ViewModels
         private bool _isInitialized = false;
 
         [ObservableProperty]
-        private string _appVersion = String.Empty;
+        private string _appVersion = string.Empty;
 
         [ObservableProperty]
         private Wpf.Ui.Appearance.ThemeType _currentTheme = Wpf.Ui.Appearance.ThemeType.Unknown;
@@ -19,7 +17,9 @@ namespace KeyGen.ViewModels
         public void OnNavigatedTo()
         {
             if (!_isInitialized)
+            {
                 InitializeViewModel();
+            }
         }
 
         public void OnNavigatedFrom()
@@ -36,7 +36,7 @@ namespace KeyGen.ViewModels
 
         private string GetAssemblyVersion()
         {
-            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? String.Empty;
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version?.ToString() ?? string.Empty;
         }
 
         [RelayCommand]
@@ -46,7 +46,9 @@ namespace KeyGen.ViewModels
             {
                 case "theme_light":
                     if (CurrentTheme == Wpf.Ui.Appearance.ThemeType.Light)
+                    {
                         break;
+                    }
 
                     Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Light);
                     CurrentTheme = Wpf.Ui.Appearance.ThemeType.Light;
@@ -55,7 +57,9 @@ namespace KeyGen.ViewModels
 
                 default:
                     if (CurrentTheme == Wpf.Ui.Appearance.ThemeType.Dark)
+                    {
                         break;
+                    }
 
                     Wpf.Ui.Appearance.Theme.Apply(Wpf.Ui.Appearance.ThemeType.Dark);
                     CurrentTheme = Wpf.Ui.Appearance.ThemeType.Dark;

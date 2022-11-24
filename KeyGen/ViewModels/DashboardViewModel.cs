@@ -1,24 +1,20 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using KeyGen.Models;
 using KeyGen.Services;
+using System;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.Json;
-using Wpf.Ui.Controls;
 
 namespace KeyGen.ViewModels
 {
-    public partial class DashboardViewModel
+    public partial class DashboardViewModel : ObservableObject
     {
         private readonly string deviceList = "Assets/Devices.json";
 
         private readonly SecurityService securityService;
-
-        public bool DevToolEnabled { get; set; }
-
-        public bool CalibrationEnabled { get; set; }
 
         public string SelectedLeftDevice { get; set; } = string.Empty;
 
@@ -27,6 +23,15 @@ namespace KeyGen.ViewModels
         public string SelectedRightDevice { get; set; } = string.Empty;
 
         public ObservableCollection<string> RightDevices { get; set; } = new();
+
+        public DateTime Expires { get; set; } = DateTime.Now.AddDays(30);
+
+        public bool DevToolEnabled { get; set; }
+
+        public bool CalibrationEnabled { get; set; }
+
+        [ObservableProperty]
+        public string tokenStr = string.Empty;
 
         public DashboardViewModel(SecurityService securityService)
         {
@@ -72,7 +77,7 @@ namespace KeyGen.ViewModels
             //string temp = securityService.Decrypt(result);
 
             securityService.SignData(JsonSerializer.Serialize(tokenInfo), out string data, out string signature);
-            bool flag = securityService.VerifyData(data, signature);
+            TokenStr = JsonSerializer.Serialize(new Token(data, signature));
         }
     }
 }
