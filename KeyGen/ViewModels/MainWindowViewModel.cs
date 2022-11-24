@@ -32,7 +32,7 @@ namespace KeyGen.ViewModels
 
         private void InitializeViewModel()
         {
-            ApplicationTitle = "Metrology Works";
+            ApplicationTitle = "KeyGen";
 
             NavigationItems = new ObservableCollection<INavigationControl>
             {
