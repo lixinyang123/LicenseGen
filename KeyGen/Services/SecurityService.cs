@@ -10,20 +10,23 @@ namespace KeyGen.Services
         private readonly string priKeyPath = "Assets/key.pri";
         private readonly string pubKeyPath = "Assets/key.pub";
 
-        private readonly RSA rsa = RSA.Create();
+        private RSA rsa = RSA.Create();
 
         public SecurityService() => Generate();
 
-        public void Generate()
+        public void Generate(bool force = false)
         {
-            if(!Generated)
+            if(!Generated || force)
             {
+                rsa = RSA.Create();
                 File.WriteAllText(priKeyPath, rsa.ToXmlString(true));
                 File.WriteAllText(pubKeyPath, rsa.ToXmlString(false));
             }
         }
 
         private bool Generated { get => File.Exists(priKeyPath) && File.Exists(pubKeyPath); }
+
+        public string PrivateKey { get => File.ReadAllText(priKeyPath); }
 
         public string PublicKey { get => File.ReadAllText(pubKeyPath); }
 

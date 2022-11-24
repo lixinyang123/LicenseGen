@@ -42,6 +42,13 @@ namespace KeyGen.ViewModels
                     PageTag = "注册机",
                     Icon = SymbolRegular.Home24,
                     PageType = typeof(Views.Pages.DashboardPage)
+                },
+                new NavigationItem()
+                {
+                    Content = "密钥",
+                    PageTag = "密钥",
+                    Icon = SymbolRegular.Key16,
+                    PageType = typeof(Views.Pages.SecretPage)
                 }
             };
 
