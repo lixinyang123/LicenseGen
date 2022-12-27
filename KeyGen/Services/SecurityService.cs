@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
@@ -19,8 +19,8 @@ namespace KeyGen.Services
             if(!Generated || force)
             {
                 rsa = RSA.Create();
-                File.WriteAllText(priKeyPath, rsa.ToXmlString(true));
-                File.WriteAllText(pubKeyPath, rsa.ToXmlString(false));
+                File.WriteAllText(priKeyPath, rsa.ExportRSAPrivateKeyPem());
+                File.WriteAllText(pubKeyPath, rsa.ExportRSAPublicKeyPem());
             }
         }
 
@@ -33,7 +33,7 @@ namespace KeyGen.Services
         // 公钥加密
         public string Encrypt(string text)
         {
-            rsa.FromXmlString(File.ReadAllText(pubKeyPath));
+            rsa.ImportFromPem(File.ReadAllText(pubKeyPath));
 
             byte[] buffer = Encoding.UTF8.GetBytes(text);
             byte[] resultBuffer = rsa.Encrypt(buffer, RSAEncryptionPadding.Pkcs1);
@@ -43,7 +43,7 @@ namespace KeyGen.Services
         // 私钥解密
         public string Decrypt(string text)
         {
-            rsa.FromXmlString(File.ReadAllText(priKeyPath));
+            rsa.ImportFromPem(File.ReadAllText(priKeyPath));
 
             byte[] buffer = Convert.FromBase64String(text);
             byte[] resultBuffer = rsa.Decrypt(buffer, RSAEncryptionPadding.Pkcs1);
@@ -53,7 +53,7 @@ namespace KeyGen.Services
         // 私钥签名
         public void SignData(string text, out string data, out string signature)
         {
-            rsa.FromXmlString(File.ReadAllText(priKeyPath));
+            rsa.ImportFromPem(File.ReadAllText(priKeyPath));
 
             byte[] buffer = Encoding.UTF8.GetBytes(text);
             byte[] resultBuffer = rsa.SignData(buffer, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
@@ -64,7 +64,7 @@ namespace KeyGen.Services
         // 公钥验证签名
         public bool VerifyData(string data, string signature)
         {
-            rsa.FromXmlString(File.ReadAllText(pubKeyPath));
+            rsa.ImportFromPem(File.ReadAllText(pubKeyPath));
 
             byte[] dataBuffer = Convert.FromBase64String(data);
             byte[] signatureBuffer = Convert.FromBase64String(signature);
