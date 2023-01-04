@@ -57,8 +57,8 @@ namespace KeyGen.Services
 
             byte[] buffer = Encoding.UTF8.GetBytes(text);
             byte[] resultBuffer = rsa.SignData(buffer, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
-            data = Convert.ToBase64String(resultBuffer);
-            signature = Convert.ToBase64String(buffer);
+            data = Convert.ToBase64String(buffer);
+            signature = Convert.ToBase64String(resultBuffer);
         }
 
         // 公钥验证签名
@@ -68,7 +68,7 @@ namespace KeyGen.Services
 
             byte[] dataBuffer = Convert.FromBase64String(data);
             byte[] signatureBuffer = Convert.FromBase64String(signature);
-            return rsa.VerifyData(signatureBuffer, dataBuffer, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+            return rsa.VerifyData(dataBuffer, signatureBuffer, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
         }
     }
 }
