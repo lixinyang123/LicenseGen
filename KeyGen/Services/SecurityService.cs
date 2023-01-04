@@ -57,8 +57,8 @@ namespace KeyGen.Services
 
             byte[] buffer = Encoding.UTF8.GetBytes(text);
             byte[] resultBuffer = rsa.SignData(buffer, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
-            data = Convert.ToBase64String(buffer);
-            signature = Convert.ToBase64String(resultBuffer);
+            data = Convert.ToBase64String(buffer).Replace("=", string.Empty);
+            signature = Convert.ToBase64String(resultBuffer).Replace("=", string.Empty);
         }
 
         // 公钥验证签名
@@ -66,9 +66,16 @@ namespace KeyGen.Services
         {
             rsa.ImportFromPem(File.ReadAllText(pubKeyPath));
 
-            byte[] dataBuffer = Convert.FromBase64String(data);
-            byte[] signatureBuffer = Convert.FromBase64String(signature);
+            byte[] dataBuffer = Convert.FromBase64String(ComplementBase64(data));
+            byte[] signatureBuffer = Convert.FromBase64String(ComplementBase64(signature));
             return rsa.VerifyData(dataBuffer, signatureBuffer, HashAlgorithmName.SHA256, RSASignaturePadding.Pkcs1);
+        }
+
+        // 补齐数据用于解码
+        public string ComplementBase64(string text)
+        {
+            int count = text.Length % 4;
+            return count == 0 ? text : text + new string('=', count);
         }
     }
 }
