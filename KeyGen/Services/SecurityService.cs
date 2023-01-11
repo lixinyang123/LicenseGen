@@ -7,8 +7,8 @@ namespace KeyGen.Services
 {
     public class SecurityService
     {
-        private readonly string priKeyPath = "Assets/key.pri";
-        private readonly string pubKeyPath = "Assets/key.pub";
+        private readonly string priKeyPath = "Assets/pri.cert";
+        private readonly string pubKeyPath = "Assets/pub.cert";
 
         private RSA rsa = RSA.Create();
 
