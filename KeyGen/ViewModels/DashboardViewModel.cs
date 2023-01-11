@@ -77,7 +77,7 @@ namespace KeyGen.ViewModels
             //string temp = securityService.Decrypt(result);
 
             securityService.SignData(JsonSerializer.Serialize(tokenInfo), out string data, out string signature);
-            TokenStr = JsonSerializer.Serialize(new Token(data, signature));
+            TokenStr = $"{data}.{signature}";
         }
     }
 }

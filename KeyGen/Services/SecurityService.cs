@@ -72,7 +72,7 @@ namespace KeyGen.Services
         }
 
         // 补齐数据用于解码
-        private string ComplementBase64(string text)
+        private static string ComplementBase64(string text)
         {
             int count = text.Length % 4;
             return count == 0 ? text : text + new string('=', count);
