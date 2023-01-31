@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_22A112C569164F9AB00217F60A025DC0"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_40F9EC06B2434459A3E659B4BD094724"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -44,6 +50,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -113,6 +127,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_22A112C569164F9AB00217F60A025DC0"
+            {
+            "SourcePath" = "8:..\\KeyGen\\applicationIcon.ico"
+            "TargetName" = "8:applicationIcon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_A8D3CF4F1B0249CD99331414484A509D"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -122,7 +156,7 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_92F7DAE3BB0A4675B15F528BDCE14A8F"
             {
             "Name" = "8:#1919"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:ProgramMenuFolder"
@@ -145,7 +179,7 @@
             "{1525181F-901A-416C-8A58-119130FE478E}:_FF02351962BD470D94701E72CCEEFDE4"
             {
             "Name" = "8:#1916"
-            "AlwaysCreate" = "11:FALSE"
+            "AlwaysCreate" = "11:TRUE"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Property" = "8:DesktopFolder"
@@ -290,6 +324,34 @@
         }
         "Shortcut"
         {
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_9E470E6C778644C6B5275EECCED79EDD"
+            {
+            "Name" = "8:KeyGen"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_92F7DAE3BB0A4675B15F528BDCE14A8F"
+            "Folder" = "8:_92F7DAE3BB0A4675B15F528BDCE14A8F"
+            "WorkingFolder" = "8:_92F7DAE3BB0A4675B15F528BDCE14A8F"
+            "Icon" = "8:_22A112C569164F9AB00217F60A025DC0"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_B9915F0574D0494BA71BC727DEA993CD"
+            {
+            "Name" = "8:KeyGen"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_FF02351962BD470D94701E72CCEEFDE4"
+            "Folder" = "8:_FF02351962BD470D94701E72CCEEFDE4"
+            "WorkingFolder" = "8:_FF02351962BD470D94701E72CCEEFDE4"
+            "Icon" = "8:_22A112C569164F9AB00217F60A025DC0"
+            "Feature" = "8:"
+            }
         }
         "UserInterface"
         {
@@ -691,7 +753,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_40F9EC06B2434459A3E659B4BD094724"
             {
-            "SourcePath" = "8:..\\KeyGen\\obj\\Release\\net7.0-windows\\apphost.exe"
+            "SourcePath" = "8:..\\KeyGen\\obj\\Debug\\net7.0-windows\\apphost.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A8D3CF4F1B0249CD99331414484A509D"
