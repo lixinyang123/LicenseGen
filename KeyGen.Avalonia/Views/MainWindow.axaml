@@ -8,7 +8,8 @@
         Icon="/Assets/avalonia-logo.ico"
 		Width="850"
 		Height="550"
-        Title="AvaloniaKeyGen">
+        Title="AvaloniaKeyGen"
+        ExtendClientAreaToDecorationsHint="True">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
