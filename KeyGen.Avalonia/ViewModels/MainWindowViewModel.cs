@@ -76,6 +76,7 @@ namespace AvaloniaKeyGen.ViewModels
             {
                 DevToolEnabled = DevToolEnabled,
                 CalibrationEnabled = CalibrationEnabled,
+                Expires = Expires.DateTime,
                 Devices = RightDevices.ToList()
             };
 
