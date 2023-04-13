@@ -70,6 +70,7 @@ namespace KeyGen.ViewModels
             {
                 DevToolEnabled = DevToolEnabled,
                 CalibrationEnabled = CalibrationEnabled,
+                Expires = Expires,
                 Devices = RightDevices.ToList()
             };
 
