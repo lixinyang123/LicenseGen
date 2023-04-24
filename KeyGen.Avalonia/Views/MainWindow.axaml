@@ -8,7 +8,8 @@
         Icon="/Assets/avalonia-logo.ico"
 		Width="850"
 		Height="550"
-        Title="AvaloniaKeyGen">
+        Title="AvaloniaKeyGen"
+        ExtendClientAreaToDecorationsHint="True">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
@@ -22,8 +23,7 @@
 			<ColumnDefinition Width="3*" />
 		</Grid.ColumnDefinitions>
 
-		<ListBox
-                Items="{Binding LeftDevices}"
+		<ListBox Items="{Binding LeftDevices}"
                 SelectedItem="{Binding SelectedLeftDevice}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
@@ -37,14 +37,12 @@
 			<Button Content="&#x02C2;" Margin="0 5" Command="{Binding MoveLeftCommand}" />
 		</StackPanel>
 
-		<ListBox
-                Grid.Column="2"
-                Cursor="Hand"
+		<ListBox Grid.Column="2"
                 Items="{Binding RightDevices}"
                 SelectedItem="{Binding SelectedRightDevice}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
-					<TextBlock Text="{Binding}" Margin="10" />
+					<TextBlock Text="{Binding}" Cursor="Hand" />
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
