@@ -18,7 +18,7 @@ namespace AvaloniaKeyGen.ViewModels
 
         public string SelectedLeftDevice { get; set; } = string.Empty;
 
-        public ObservableCollection<string> LeftDevices { get; set; }
+        public ObservableCollection<string> LeftDevices { get; set; } = new();
 
         public string SelectedRightDevice { get; set; } = string.Empty;
 

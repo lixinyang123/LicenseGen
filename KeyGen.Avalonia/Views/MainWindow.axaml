@@ -23,7 +23,7 @@
 			<ColumnDefinition Width="3*" />
 		</Grid.ColumnDefinitions>
 
-		<ListBox Items="{Binding LeftDevices}"
+		<ListBox ItemsSource="{Binding LeftDevices}"
                 SelectedItem="{Binding SelectedLeftDevice}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
@@ -38,7 +38,7 @@
 		</StackPanel>
 
 		<ListBox Grid.Column="2"
-                Items="{Binding RightDevices}"
+                ItemsSource="{Binding RightDevices}"
                 SelectedItem="{Binding SelectedRightDevice}">
 			<ListBox.ItemTemplate>
 				<DataTemplate>
