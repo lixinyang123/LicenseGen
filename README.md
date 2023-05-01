@@ -1,6 +1,6 @@
-# KeyGen
+# LicenseGen
 
-RSA KeyGen Sample
+RSA LicenseGen Sample
 
 ![image](https://user-images.githubusercontent.com/32838371/234042253-1397501f-6621-4781-b85f-cad9998e0ff7.png)
 
